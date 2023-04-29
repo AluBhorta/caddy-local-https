@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  caddy:
+    image: caddy:alpine
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile
+      - caddy_data:/data
+    ports:
+      - "443:443"
+      - "80:80"
+    depends_on:
+      - nginx
+      - whoami
+  nginx:
+    image: nginx:alpine
+  whoami:
+    image: containous/whoami
+
+volumes:
+  caddy_data:

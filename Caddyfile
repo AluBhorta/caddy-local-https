@@ -1,0 +1,9 @@
+nginx.myapp.local {
+  tls internal
+  reverse_proxy nginx:80
+}
+
+whoami.myapp.local {
+  tls internal
+  reverse_proxy whoami:80
+}
