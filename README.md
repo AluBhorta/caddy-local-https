@@ -15,12 +15,6 @@ use caddy's automatic tls to access sites locally with https.
   docker compose up -d
   ```
 
-- copy caddy's internal cert from container to local machine:
-
-  ```sh
-  docker compose cp caddy:/data/caddy/pki/authorities/local/root.crt ./caddy_root.crt
-  ```
-
 - update your hosts file (`/etc/hosts`) 
   
   add the custom domain names that you want to resolve to local address `127.0.0.1`. in this case, we're adding 2 new lines (for `whoami.myapp.local` & `nginx.myapp.local`):
@@ -29,6 +23,11 @@ use caddy's automatic tls to access sites locally with https.
   127.0.0.1       nginx.myapp.local
   ```
 
+- copy caddy's internal cert from container to local machine:
+
+  ```sh
+  docker compose cp caddy:/data/caddy/pki/authorities/local/root.crt ./caddy_root.crt
+  ```
 
 - <details>
       <summary>
